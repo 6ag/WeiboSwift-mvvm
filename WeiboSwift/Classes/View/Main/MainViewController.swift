@@ -49,16 +49,44 @@ extension MainViewController {
     /// 设置所有子控制器
     fileprivate func setupChildViewControllers() {
         let array = [
-            ["clsName" : "HomeViewController", "title" : "首页", "imageName" : "home"],
-            ["clsName" : "MessageViewController", "title" : "消息", "imageName" : "message_center"],
+            ["clsName" : "HomeViewController",
+             "title" : "首页",
+             "imageName" : "home",
+             "visitorInfo" : [
+                "imageName" : "",
+                "message" : "关注一些人，回来看看有什么惊喜"
+                ]
+            ],
+            ["clsName" : "MessageViewController",
+             "title" : "消息",
+             "imageName" : "message_center",
+             "visitorInfo" : [
+                "imageName" : "visitordiscover_image_message",
+                "message" : "登录后，别人评论你的微博，发给你的信息，都会在这里收到通知"
+                ]
+            ],
             ["clsName" : "UIViewController"],
-            ["clsName" : "DiscoverViewController", "title" : "发现", "imageName" : "discover"],
-            ["clsName" : "ProfileViewController", "title" : "我的", "imageName" : "profile"]
+            ["clsName" : "DiscoverViewController",
+             "title" : "发现",
+             "imageName" : "discover",
+             "visitorInfo" : [
+                "imageName" : "visitordiscover_image_message",
+                "message" : "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"
+                ]
+            ],
+            ["clsName" : "ProfileViewController",
+             "title" : "我的",
+             "imageName" : "profile",
+             "visitorInfo" : [
+                "imageName" : "visitordiscover_image_profile",
+                "message" : "登录后，你的微博、相册、个人资料会显示在这里，展示给别人"
+                ]
+            ]
         ]
         
         var arrayM = [UIViewController]()
         for dict in array {
-            arrayM.append(controller(dict: dict))
+            arrayM.append(controller(dict: dict as [String : AnyObject]))
         }
         
         viewControllers = arrayM
@@ -69,16 +97,21 @@ extension MainViewController {
     ///
     /// - Parameter dict: 信息字典[clsName, title, imageName]
     /// - Returns: 子控制器
-    private func controller(dict: [String: String]) -> UIViewController {
-        guard let clsName = dict["clsName"],
-            let title = dict["title"],
-            let imageName = dict["imageName"],
-            let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? UIViewController.Type
+    private func controller(dict: [String: AnyObject]) -> UIViewController {
+        guard let clsName = dict["clsName"] as? String,
+            let title = dict["title"] as? String,
+            let imageName = dict["imageName"] as? String,
+            let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? UIViewController.Type,
+            let visitorInfo = dict["visitorInfo"] as? [String : String]
+            
             else {
                 return UIViewController()
         }
         
         let vc = cls.init()
+        if let baseVc = vc as? BaseViewController {
+            baseVc.visitorInfo = visitorInfo
+        }
         vc.title = title
         vc.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.orange], for: .highlighted)
         vc.tabBarItem.image = UIImage(named: "tabbar_" + imageName)?.withRenderingMode(.alwaysOriginal)

@@ -14,6 +14,8 @@ class BaseViewController: UIViewController {
     var refreshControl: UIRefreshControl?
     var isPullup = false // 标记上下拉  true上拉  false下拉
     var isLogin = false // 是否已经登录 true已经登录 false未登录
+    /// 访客视图信息
+    var visitorInfo: [String: String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,7 +97,8 @@ extension BaseViewController {
     
     /// 设置未登录的访客视图
     private func prepareVisitorView() {
-        let visitorView = VisitorView(frame: view.bounds)
+        let visitorView = VisitorView(frame: view.bounds.insetBy(dx: 0, dy: 49))
+        visitorView.visitorInfo = visitorInfo
         view.insertSubview(visitorView, belowSubview: navigationBar)
     }
     

@@ -11,7 +11,26 @@ import SnapKit
 
 /// 访客视图
 class VisitorView: UIView {
-
+    
+    /// 访客视图信息
+    var visitorInfo: [String: String]? {
+        didSet {
+            guard let imageName = visitorInfo?["imageName"],
+                let message = visitorInfo?["message"] else {
+                    return
+            }
+            tipLabel.text = message
+            // 首页不修改图片
+            if imageName.isEmpty {
+                startAnimation()
+                return
+            }
+            bgImageView.image = UIImage(named: imageName)
+            hourseImageView.isHidden = true
+            grayImageView.isHidden = true
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         prepareUI()
@@ -21,7 +40,21 @@ class VisitorView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// 添加旋转动画
+    private func startAnimation() {
+        let anim = CABasicAnimation(keyPath: "transform.rotation")
+        anim.toValue = 2 * M_PI
+        anim.repeatCount = MAXFLOAT
+        anim.duration = 15
+        anim.isRemovedOnCompletion = false
+        bgImageView.layer.add(anim, forKey: nil)
+    }
+    
     // MARK: - 懒加载
+    /// 灰色背景图
+    fileprivate lazy var grayImageView: UIImageView = UIImageView(
+        image: UIImage(named: "visitordiscover_feed_mask_smallicon"))
+    
     /// 转圈的背景图
     fileprivate lazy var bgImageView: UIImageView = UIImageView(
         image: UIImage(named: "visitordiscover_feed_image_smallicon"))
@@ -59,18 +92,23 @@ extension VisitorView {
     
     /// 准备UI
     fileprivate func prepareUI() {
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.cz_color(withHex: 0xEDEDED)
         
         tipLabel.preferredMaxLayoutWidth = UIScreen.cz_screenWidth() - 80
         tipLabel.numberOfLines = 0
         
         addSubview(bgImageView)
+        addSubview(grayImageView)
         addSubview(hourseImageView)
         addSubview(tipLabel)
         addSubview(registerButton)
         addSubview(loginButton)
         
         bgImageView.snp.makeConstraints { (make) in
+            make.center.equalTo(self)
+        }
+        
+        grayImageView.snp.makeConstraints { (make) in
             make.center.equalTo(self)
         }
         
@@ -84,11 +122,15 @@ extension VisitorView {
         }
         
         registerButton.snp.makeConstraints { (make) in
-            
+            make.centerX.equalTo(self).offset(-80)
+            make.top.equalTo(tipLabel.snp.bottom).offset(20)
+            make.size.equalTo(CGSize(width: 120, height: 45))
         }
         
         loginButton.snp.makeConstraints { (make) in
-            
+            make.centerX.equalTo(self).offset(80)
+            make.top.equalTo(tipLabel.snp.bottom).offset(20)
+            make.size.equalTo(CGSize(width: 120, height: 45))
         }
         
     }

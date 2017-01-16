@@ -16,16 +16,32 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        prepareUI()
         
-        // 假数据
-        for index in 0..<20 {
-            statusList.insert(index.description, at: 0)
+    }
+    
+    /// 加载数据
+    override func loadData() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            
+            if self.refreshControl?.isRefreshing ?? false {
+                // 停止刷新
+                self.refreshControl?.endRefreshing()
+            }
+            
+            // 假数据
+            for index in 0..<20 {
+                if self.isPullup {
+                    self.statusList.append(index.description)
+                    self.isPullup = false
+                } else {
+                    self.statusList.insert(index.description, at: 0)
+                }
+                
+            }
+            
+            // 刷新数据
+            self.tableView?.reloadData()
         }
-        
-//        tableView?.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: CELL_IDENTIFIER)
-        
     }
     
     /// 跳转到朋友界面
@@ -55,7 +71,6 @@ extension HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_IDENTIFIER, for: indexPath)
         let cell = UITableViewCell()
         cell.textLabel?.text = statusList[indexPath.row]
         return cell

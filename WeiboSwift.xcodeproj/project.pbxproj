@@ -30,6 +30,7 @@
 		9A2D9BBF1E2BE0BB0095C1C7 /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BB31E2BE0BB0095C1C7 /* UIViewController+CZAddition.m */; };
 		9A5503C31E2BB92D00D7DADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A5503C21E2BB92D00D7DADB /* Assets.xcassets */; };
 		B21FB1E81E2C6FA100703024 /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */; };
+		B21FB1EA1E2CAC2500703024 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21FB1E91E2CAC2500703024 /* VisitorView.swift */; };
 		CD2B0D40A61AD9DE84EDBD6A /* Pods_WeiboSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FCBB4D64ADF894469578CD2 /* Pods_WeiboSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		9A5503C21E2BB92D00D7DADB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A5503C71E2BB92D00D7DADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
+		B21FB1E91E2CAC2500703024 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				9A2D9B821E2BD9E00095C1C7 /* MainViewController.swift */,
 				9A2D9B841E2BD9FF0095C1C7 /* NavigationViewController.swift */,
 				9A2D9B861E2BDB330095C1C7 /* BaseViewController.swift */,
+				B21FB1E91E2CAC2500703024 /* VisitorView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				9A2D9BB91E2BE0BB0095C1C7 /* NSString+CZPath.m in Sources */,
 				9A2D9BB71E2BE0BB0095C1C7 /* NSString+CZBase64.m in Sources */,
 				9A2D9B8D1E2BDB5C0095C1C7 /* DiscoverViewController.swift in Sources */,
+				B21FB1EA1E2CAC2500703024 /* VisitorView.swift in Sources */,
 				9A2D9BBB1E2BE0BB0095C1C7 /* UIColor+CZAddition.m in Sources */,
 				9A2D9B991E2BE0AD0095C1C7 /* BundleExtension.swift in Sources */,
 				9A2D9B8F1E2BDB620095C1C7 /* ProfileViewController.swift in Sources */,

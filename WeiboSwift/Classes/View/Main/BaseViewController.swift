@@ -12,6 +12,8 @@ class BaseViewController: UIViewController {
     
     var tableView: UITableView?
     var refreshControl: UIRefreshControl?
+    var isPullup = false // 标记上下拉  true上拉  false下拉
+    var isLogin = false // 是否已经登录 true已经登录 false未登录
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +23,9 @@ class BaseViewController: UIViewController {
     }
     
     /// 加载数据 - 让子类去重写
-    func loadData() {}
-    
-    /// 自定义导航条
-    lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
-    
-    /// 自定义导航条的条目
-    lazy var navItem = UINavigationItem()
+    func loadData() {
+        refreshControl?.endRefreshing()
+    }
     
     /// 重写title属性，给自定义导航条设置标题
     override var title: String? {
@@ -36,6 +34,13 @@ class BaseViewController: UIViewController {
         }
     }
     
+    // MARK: - 懒加载
+    /// 自定义导航条
+    lazy var navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.cz_screenWidth(), height: 64))
+    
+    /// 自定义导航条的条目
+    lazy var navItem = UINavigationItem()
+    
 }
 
 // MARK: - 设置界面
@@ -43,13 +48,14 @@ extension BaseViewController {
     
     /// 准备UI
     func prepareUI() {
-        view.backgroundColor = UIColor.cz_random()
+        view.backgroundColor = UIColor.white
         
         // 如果隐藏了导航栏，会缩进20。需要取消自动缩进
         automaticallyAdjustsScrollViewInsets = false
         
         prepareNavigationBar()
-        prepareTableView()
+        isLogin ? prepareTableView() : prepareVisitorView()
+        
     }
     
     /// 设置导航条
@@ -65,7 +71,7 @@ extension BaseViewController {
         navigationBar.isTranslucent = false
     }
     
-    /// 设置表格
+    /// 设置登录后的表格视图
     private func prepareTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         view.insertSubview(tableView!, belowSubview: navigationBar)
@@ -87,6 +93,12 @@ extension BaseViewController {
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
     
+    /// 设置未登录的访客视图
+    private func prepareVisitorView() {
+        let visitorView = VisitorView(frame: view.bounds)
+        view.insertSubview(visitorView, belowSubview: navigationBar)
+    }
+    
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -98,6 +110,24 @@ extension BaseViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        let section = tableView.numberOfSections - 1
+        
+        if row < 0 || section < 0 {
+            return
+        }
+        
+        // 取出某组的行数
+        let count = tableView.numberOfRows(inSection: section) - 1
+        
+        // 是否是最后一个cell并且还没有上拉刷新
+        if row == count && !isPullup {
+            loadData()
+        }
+        
     }
     
 }

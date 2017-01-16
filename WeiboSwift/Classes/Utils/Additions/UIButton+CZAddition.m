@@ -9,11 +9,11 @@
 
 @implementation UIButton (CZAddition)
 
-+ (instancetype)cz_textButton:(NSString *)title fontSize:(CGFloat)fontSize normalColor:(UIColor *)normalColor highlightedColor:(UIColor *)highlightedColor {
++ (instancetype __nonnull)cz_textButton:(NSString * __nullable)title fontSize:(CGFloat)fontSize normalColor:(UIColor * __nullable)normalColor highlightedColor:(UIColor * __nullable)highlightedColor {
     return [self cz_textButton:title fontSize:fontSize normalColor:normalColor highlightedColor:highlightedColor backgroundImageName:nil];
 }
 
-+ (instancetype)cz_textButton:(NSString *)title fontSize:(CGFloat)fontSize normalColor:(UIColor *)normalColor highlightedColor:(UIColor *)highlightedColor backgroundImageName:(NSString *)backgroundImageName {
++ (instancetype __nonnull)cz_textButton:(NSString * __nullable)title fontSize:(CGFloat)fontSize normalColor:(UIColor * __nullable)normalColor highlightedColor:(UIColor * __nullable)highlightedColor backgroundImageName:(NSString * __nullable)backgroundImageName {
     
     UIButton *button = [[self alloc] init];
     
@@ -36,7 +36,7 @@
     return button;
 }
 
-+ (instancetype)cz_imageButton:(NSString *)imageName backgroundImageName:(NSString *)backgroundImageName {
++ (instancetype __nonnull)cz_imageButton:(NSString * __nullable)imageName backgroundImageName:(NSString * __nullable)backgroundImageName {
     
     UIButton *button = [[self alloc] init];
     

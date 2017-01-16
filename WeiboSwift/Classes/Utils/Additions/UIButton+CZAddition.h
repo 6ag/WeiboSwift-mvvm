@@ -19,7 +19,7 @@
 
  @return UIButton
  */
-+ (instancetype)cz_textButton:(NSString *)title fontSize:(CGFloat)fontSize normalColor:(UIColor *)normalColor highlightedColor:(UIColor *)highlightedColor;
++ (instancetype __nonnull)cz_textButton:(NSString * __nullable)title fontSize:(CGFloat)fontSize normalColor:(UIColor * __nullable)normalColor highlightedColor:(UIColor * __nullable)highlightedColor;
 
 
 /**
@@ -33,7 +33,7 @@
 
  @return UIButton
  */
-+ (instancetype)cz_textButton:(NSString *)title fontSize:(CGFloat)fontSize normalColor:(UIColor *)normalColor highlightedColor:(UIColor *)highlightedColor backgroundImageName:(NSString *)backgroundImageName;
++ (instancetype __nonnull)cz_textButton:(NSString * __nullable)title fontSize:(CGFloat)fontSize normalColor:(UIColor * __nullable)normalColor highlightedColor:(UIColor * __nullable)highlightedColor backgroundImageName:(NSString * __nullable)backgroundImageName;
 
 /**
  创建图像按钮
@@ -43,6 +43,6 @@
 
  @return UIButton
  */
-+ (instancetype)cz_imageButton:(NSString *)imageName backgroundImageName:(NSString *)backgroundImageName;
++ (instancetype __nonnull)cz_imageButton:(NSString * __nullable)imageName backgroundImageName:(NSString * __nullable)backgroundImageName;
 
 @end

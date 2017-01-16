@@ -29,9 +29,14 @@
 		9A2D9BBE1E2BE0BB0095C1C7 /* UIView+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BB11E2BE0BB0095C1C7 /* UIView+CZAddition.m */; };
 		9A2D9BBF1E2BE0BB0095C1C7 /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BB31E2BE0BB0095C1C7 /* UIViewController+CZAddition.m */; };
 		9A5503C31E2BB92D00D7DADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A5503C21E2BB92D00D7DADB /* Assets.xcassets */; };
+		B21FB1E81E2C6FA100703024 /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */; };
+		CD2B0D40A61AD9DE84EDBD6A /* Pods_WeiboSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FCBB4D64ADF894469578CD2 /* Pods_WeiboSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FCBB4D64ADF894469578CD2 /* Pods_WeiboSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeiboSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		187E2BD48A19DD8AC272DEB8 /* Pods-WeiboSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiboSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiboSwift/Pods-WeiboSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		2DAF16756A878CF906FEAD86 /* Pods-WeiboSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiboSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeiboSwift/Pods-WeiboSwift.release.xcconfig"; sourceTree = "<group>"; };
 		9A2D9B821E2BD9E00095C1C7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9A2D9B841E2BD9FF0095C1C7 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		9A2D9B861E2BDB330095C1C7 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +75,7 @@
 		9A5503B81E2BB92D00D7DADB /* WeiboSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiboSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5503C21E2BB92D00D7DADB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A5503C71E2BB92D00D7DADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +83,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD2B0D40A61AD9DE84EDBD6A /* Pods_WeiboSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		465F4A955966543B067BB70F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				187E2BD48A19DD8AC272DEB8 /* Pods-WeiboSwift.debug.xcconfig */,
+				2DAF16756A878CF906FEAD86 /* Pods-WeiboSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9A2D9B781E2BD54C0095C1C7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				9A2D9B981E2BE0AD0095C1C7 /* BundleExtension.swift */,
+				B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,6 +243,8 @@
 			children = (
 				9A5503BA1E2BB92D00D7DADB /* WeiboSwift */,
 				9A5503B91E2BB92D00D7DADB /* Products */,
+				465F4A955966543B067BB70F /* Pods */,
+				DA246BB5E5EC1542452E0E04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,6 +266,14 @@
 			path = WeiboSwift;
 			sourceTree = "<group>";
 		};
+		DA246BB5E5EC1542452E0E04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0FCBB4D64ADF894469578CD2 /* Pods_WeiboSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,9 +281,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A5503CA1E2BB92D00D7DADB /* Build configuration list for PBXNativeTarget "WeiboSwift" */;
 			buildPhases = (
+				382C25C8E97B10BC616253D6 /* [CP] Check Pods Manifest.lock */,
 				9A5503B41E2BB92C00D7DADB /* Sources */,
 				9A5503B51E2BB92C00D7DADB /* Frameworks */,
 				9A5503B61E2BB92C00D7DADB /* Resources */,
+				FEA60F52FC1583239B1041CD /* [CP] Embed Pods Frameworks */,
+				1DCC4E3CE916291F09E048A8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -312,6 +342,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1DCC4E3CE916291F09E048A8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiboSwift/Pods-WeiboSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		382C25C8E97B10BC616253D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FEA60F52FC1583239B1041CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeiboSwift/Pods-WeiboSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9A5503B41E2BB92C00D7DADB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -337,6 +415,7 @@
 				9A2D9BBA1E2BE0BB0095C1C7 /* UIButton+CZAddition.m in Sources */,
 				9A2D9BBF1E2BE0BB0095C1C7 /* UIViewController+CZAddition.m in Sources */,
 				9A2D9BB61E2BE0BB0095C1C7 /* NSObject+CZRuntime.m in Sources */,
+				B21FB1E81E2C6FA100703024 /* UIBarButtonItemExtension.swift in Sources */,
 				9A2D9BBE1E2BE0BB0095C1C7 /* UIView+CZAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +518,7 @@
 		};
 		9A5503CB1E2BB92D00D7DADB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 187E2BD48A19DD8AC272DEB8 /* Pods-WeiboSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -455,6 +535,7 @@
 		};
 		9A5503CC1E2BB92D00D7DADB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DAF16756A878CF906FEAD86 /* Pods-WeiboSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

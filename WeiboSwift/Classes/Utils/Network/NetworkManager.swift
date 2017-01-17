@@ -24,9 +24,12 @@ class NetworkManager: AFHTTPSessionManager {
     static let shared = NetworkManager()
     
     /// 访问令牌 - 除了微博授权接口，其他接口都需要用到
-    var accessToken: String? = "2.00DR1EFEuawRuC4ab7d0b2920GBymt"
+    var accessToken: String?
     
-    var uid: String? = ""
+    /// 是否已经登录
+    var isLogin: Bool {
+        return accessToken != nil
+    }
     
     /// 公共请求方法
     ///
@@ -48,6 +51,8 @@ class NetworkManager: AFHTTPSessionManager {
             
             if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                 print("token失效了 无访问权限")
+                // 发出请求登录的通知
+                NotificationCenter.default.post(name: NSNotification.Name(NEED_USER_LOGIN_NOTIFICATION), object: nil)
             }
             
             finished(nil, false)
@@ -74,6 +79,8 @@ class NetworkManager: AFHTTPSessionManager {
         
         guard let accessToken = accessToken else {
             print("登录过期，需要重新登录")
+            // 发出请求登录的通知
+            NotificationCenter.default.post(name: NSNotification.Name(NEED_USER_LOGIN_NOTIFICATION), object: nil)
             return
         }
         

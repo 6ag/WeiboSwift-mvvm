@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A2D9B831E2BD9E00095C1C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9B821E2BD9E00095C1C7 /* MainViewController.swift */; };
-		9A2D9B851E2BD9FF0095C1C7 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9B841E2BD9FF0095C1C7 /* NavigationViewController.swift */; };
+		9A2D9B851E2BD9FF0095C1C7 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9B841E2BD9FF0095C1C7 /* NavigationController.swift */; };
 		9A2D9B871E2BDB330095C1C7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9B861E2BDB330095C1C7 /* BaseViewController.swift */; };
 		9A2D9B891E2BDB4B0095C1C7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9B881E2BDB4B0095C1C7 /* HomeViewController.swift */; };
 		9A2D9B8B1E2BDB540095C1C7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9B8A1E2BDB540095C1C7 /* MessageViewController.swift */; };
@@ -29,6 +29,8 @@
 		9A2D9BBE1E2BE0BB0095C1C7 /* UIView+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BB11E2BE0BB0095C1C7 /* UIView+CZAddition.m */; };
 		9A2D9BBF1E2BE0BB0095C1C7 /* UIViewController+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BB31E2BE0BB0095C1C7 /* UIViewController+CZAddition.m */; };
 		9A5503C31E2BB92D00D7DADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A5503C21E2BB92D00D7DADB /* Assets.xcassets */; };
+		9A6787061E2E6962009C6D0F /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6787051E2E6962009C6D0F /* Common.swift */; };
+		9A6787091E2E6B22009C6D0F /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6787081E2E6B22009C6D0F /* OAuthViewController.swift */; };
 		B21FB1E81E2C6FA100703024 /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */; };
 		B21FB1EA1E2CAC2500703024 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21FB1E91E2CAC2500703024 /* VisitorView.swift */; };
 		B2F4AB101E2DBB8A00223D27 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4AB0F1E2DBB8A00223D27 /* NetworkManager.swift */; };
@@ -43,7 +45,7 @@
 		187E2BD48A19DD8AC272DEB8 /* Pods-WeiboSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiboSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeiboSwift/Pods-WeiboSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		2DAF16756A878CF906FEAD86 /* Pods-WeiboSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeiboSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeiboSwift/Pods-WeiboSwift.release.xcconfig"; sourceTree = "<group>"; };
 		9A2D9B821E2BD9E00095C1C7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		9A2D9B841E2BD9FF0095C1C7 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		9A2D9B841E2BD9FF0095C1C7 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9A2D9B861E2BDB330095C1C7 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9A2D9B881E2BDB4B0095C1C7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9A2D9B8A1E2BDB540095C1C7 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,8 @@
 		9A5503B81E2BB92D00D7DADB /* WeiboSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiboSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5503C21E2BB92D00D7DADB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A5503C71E2BB92D00D7DADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A6787051E2E6962009C6D0F /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		9A6787081E2E6B22009C6D0F /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
 		B21FB1E91E2CAC2500703024 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		B2F4AB0F1E2DBB8A00223D27 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				9A2D9B7E1E2BD54D0095C1C7 /* Main */,
+				9A6787071E2E6AFE009C6D0F /* OAuth */,
 				9A2D9B7D1E2BD54D0095C1C7 /* Home */,
 				9A2D9B7F1E2BD54D0095C1C7 /* Message */,
 				9A2D9B7C1E2BD54D0095C1C7 /* Discover */,
@@ -171,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				9A2D9B821E2BD9E00095C1C7 /* MainViewController.swift */,
-				9A2D9B841E2BD9FF0095C1C7 /* NavigationViewController.swift */,
+				9A2D9B841E2BD9FF0095C1C7 /* NavigationController.swift */,
 				9A2D9B861E2BDB330095C1C7 /* BaseViewController.swift */,
 				B21FB1E91E2CAC2500703024 /* VisitorView.swift */,
 			);
@@ -207,6 +212,7 @@
 			children = (
 				9A2D9B911E2BDD190095C1C7 /* AppDelegate.swift */,
 				9A2D9B961E2BDD320095C1C7 /* Weibo-Bridge.h */,
+				9A6787051E2E6962009C6D0F /* Common.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -278,6 +284,14 @@
 				9A5503C71E2BB92D00D7DADB /* Info.plist */,
 			);
 			path = WeiboSwift;
+			sourceTree = "<group>";
+		};
+		9A6787071E2E6AFE009C6D0F /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				9A6787081E2E6B22009C6D0F /* OAuthViewController.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 		B2F4AB0E1E2DBB7000223D27 /* Network */ = {
@@ -431,7 +445,7 @@
 				B2F4AB141E2DDE7F00223D27 /* Status.swift in Sources */,
 				9A2D9BB41E2BE0BB0095C1C7 /* NSArray+Log.m in Sources */,
 				9A2D9BBC1E2BE0BB0095C1C7 /* UILabel+CZAddition.m in Sources */,
-				9A2D9B851E2BD9FF0095C1C7 /* NavigationViewController.swift in Sources */,
+				9A2D9B851E2BD9FF0095C1C7 /* NavigationController.swift in Sources */,
 				B2F4AB101E2DBB8A00223D27 /* NetworkManager.swift in Sources */,
 				9A2D9BB51E2BE0BB0095C1C7 /* NSAttributedString+CZAdditon.m in Sources */,
 				9A2D9B831E2BD9E00095C1C7 /* MainViewController.swift in Sources */,
@@ -439,9 +453,11 @@
 				9A2D9B891E2BDB4B0095C1C7 /* HomeViewController.swift in Sources */,
 				B2F4AB121E2DC77700223D27 /* NetworkManagerExtension.swift in Sources */,
 				9A2D9BBD1E2BE0BB0095C1C7 /* UIScreen+CZAddition.m in Sources */,
+				9A6787061E2E6962009C6D0F /* Common.swift in Sources */,
 				9A2D9B871E2BDB330095C1C7 /* BaseViewController.swift in Sources */,
 				9A2D9BBA1E2BE0BB0095C1C7 /* UIButton+CZAddition.m in Sources */,
 				9A2D9BBF1E2BE0BB0095C1C7 /* UIViewController+CZAddition.m in Sources */,
+				9A6787091E2E6B22009C6D0F /* OAuthViewController.swift in Sources */,
 				B2F4AB161E2DE00000223D27 /* StatusListViewModel.swift in Sources */,
 				9A2D9BB61E2BE0BB0095C1C7 /* NSObject+CZRuntime.m in Sources */,
 				B21FB1E81E2C6FA100703024 /* UIBarButtonItemExtension.swift in Sources */,

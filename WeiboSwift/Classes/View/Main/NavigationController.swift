@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationViewController: UINavigationController {
+class NavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class NavigationViewController: UINavigationController {
     
 }
 
-extension NavigationViewController {
+extension NavigationController {
     
     /// 拦截系统push操作
     ///

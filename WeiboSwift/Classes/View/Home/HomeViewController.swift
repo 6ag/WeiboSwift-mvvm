@@ -22,6 +22,11 @@ class HomeViewController: BaseViewController {
     /// 加载数据
     override func loadData() {
         
+        if !NetworkManager.shared.isLogin {
+            print("用户未登录，无需加载数据")
+            return
+        }
+        
         listViewModel.loadStatus(pullup: isPullup) { (isSuccess, isShouldRefresh) in
             self.refreshControl?.endRefreshing()
             self.isPullup = false

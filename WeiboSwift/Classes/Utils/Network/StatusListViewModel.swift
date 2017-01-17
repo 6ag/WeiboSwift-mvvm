@@ -21,32 +21,34 @@ class StatusListViewModel {
     ///   - finished: 完成回调
     func loadStatus(pullup: Bool, finished: @escaping (_ isSuccess: Bool, _ isShouldRefresh: Bool) -> ()) {
         
+        print(pullup ? "上拉加载" : "下拉刷新")
         //  firstId - sinceId: 返回ID比since_id大的微博 更早的微博 下拉刷新最新数据
-        let firstId = !pullup ? 0 : statusList.first?.id ?? 0
+        let firstId = pullup ? 0 : statusList.first?.id ?? 0
         
         //  lastId - maxId: 返回ID小于或等于max_id的微博 更久的微博 上拉加载更久数据
-        let lastId = pullup ? 0 : statusList.last?.id ?? 0
+        var lastId = !pullup ? 0 : statusList.last?.id ?? 0
+        // 因为返回的id小于、或者等于lastId，所以需要减1
+        lastId = lastId > 1 ? lastId - 1 : 0
         
         NetworkManager.shared.statusList(sinceId: firstId, maxId: lastId) { (list, isSuccess) in
             
-            guard let array = NSArray.yy_modelArray(with: Status.classForCoder(), json: list ?? []) as? [Status] else {
+            guard let statusList = NSArray.yy_modelArray(with: Status.classForCoder(), json: list ?? []) as? [Status] else {
                 finished(false, false)
                 return
             }
             
             // 取出返回数据里最大id 去进行数据拼接
-            let tempFirstId = array.first?.id ?? 0
-            print("firstId = \(firstId) lastId = \(lastId) tempFirstId = \(tempFirstId)")
+            let tempFirstId = statusList.first?.id ?? 0
             
             // 拼接数据
             if pullup && lastId > tempFirstId {
-                self.statusList += array
-            } else if firstId < tempFirstId {
-                self.statusList = array + self.statusList
+                self.statusList += statusList
+            } else if !pullup && firstId < tempFirstId {
+                self.statusList = statusList + self.statusList
             }
             
             // 有新数据才刷新
-            array.count > 0 ? finished(true, true) : finished(true, false)
+            statusList.count > 0 ? finished(true, true) : finished(true, false)
             
         }
         

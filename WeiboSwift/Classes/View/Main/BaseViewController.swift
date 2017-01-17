@@ -13,7 +13,6 @@ class BaseViewController: UIViewController {
     var tableView: UITableView?
     var refreshControl: UIRefreshControl?
     var isPullup = false // 标记上下拉  true上拉  false下拉
-    var isLogin = true   // 是否已经登录 true已经登录 false未登录
     var visitorInfo: [String: String]? // 访客视图信息
     
     override func viewDidLoad() {
@@ -30,12 +29,14 @@ class BaseViewController: UIViewController {
     
     /// 注册
     @objc fileprivate func register() {
-        print("注册")
+        // 发出请求登录的通知
+        NotificationCenter.default.post(name: NSNotification.Name(NEED_USER_LOGIN_NOTIFICATION), object: nil)
     }
     
     /// 登录
     @objc fileprivate func login() {
-        print("登录")
+        // 发出请求登录的通知
+        NotificationCenter.default.post(name: NSNotification.Name(NEED_USER_LOGIN_NOTIFICATION), object: nil)
     }
     
     /// 重写title属性，给自定义导航条设置标题
@@ -65,7 +66,7 @@ extension BaseViewController {
         automaticallyAdjustsScrollViewInsets = false
         
         prepareNavigationBar()
-        isLogin ? prepareTableView() : prepareVisitorView()
+        NetworkManager.shared.isLogin ? prepareTableView() : prepareVisitorView()
         
     }
     
@@ -140,6 +141,7 @@ extension BaseViewController: UITableViewDataSource, UITableViewDelegate {
         
         // 是否是最后一个cell并且还没有上拉刷新
         if indexPath.row == count && !isPullup {
+            isPullup = true
             loadData()
         }
         

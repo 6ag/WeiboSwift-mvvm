@@ -24,7 +24,7 @@ class NetworkManager: AFHTTPSessionManager {
     static let shared = NetworkManager()
     
     /// 访问令牌 - 除了微博授权接口，其他接口都需要用到
-    var accessToken: String? = "2.00DR1EFEeyJSZD08b75c56800oMTcq"
+    var accessToken: String? = "2.00DR1EFEuawRuC4ab7d0b2920GBymt"
     
     /// 公共请求方法
     ///
@@ -50,6 +50,8 @@ class NetworkManager: AFHTTPSessionManager {
             
             finished(nil, false)
         }
+        
+        print("parameters = \(parameters)")
         
         if method == .get {
             get(urlString, parameters: parameters, progress: nil, success: success, failure: failure)

@@ -22,10 +22,15 @@ class HomeViewController: BaseViewController {
     /// 加载数据
     override func loadData() {
         
-        listViewModel.loadStatus { (isSuccess) in
+        listViewModel.loadStatus(pullup: isPullup) { (isSuccess, isShouldRefresh) in
             self.refreshControl?.endRefreshing()
             self.isPullup = false
-            self.tableView?.reloadData()
+            
+            // 有更多数据才刷新
+            if isShouldRefresh {
+                self.tableView?.reloadData()
+            }
+            
         }
     }
     

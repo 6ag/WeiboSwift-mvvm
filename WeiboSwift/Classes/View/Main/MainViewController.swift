@@ -40,8 +40,6 @@ extension MainViewController {
         tabBar.addSubview(composeButton)
         let width = tabBar.bounds.width / CGFloat(childViewControllers.count) - 1
         composeButton.frame = tabBar.bounds.insetBy(dx: width * 2, dy: 0)
-        print("composeButton.frame = \(composeButton.frame)")
-        
         composeButton.addTarget(self, action: #selector(composeStatus), for: .touchUpInside)
         
     }

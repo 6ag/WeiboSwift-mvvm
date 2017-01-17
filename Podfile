@@ -7,5 +7,10 @@ target 'WeiboSwift' do
 
   # Pods for WeiboSwift
 pod 'SnapKit', '~> 3.1.2'
-pod 'Alamofire', '~> 4.0'
+pod 'AFNetworking'
+pod 'SDWebImage'
+pod 'YYModel'
+pod 'FMDB'
+pod 'SVProgressHUD'
+pod 'pop'
 end

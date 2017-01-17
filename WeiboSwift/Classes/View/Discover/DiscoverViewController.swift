@@ -12,18 +12,7 @@ class DiscoverViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        prepareUI()
-    }
-    
-}
 
-// MARK: - 设置界面
-extension DiscoverViewController {
-    
-    /// 准备UI
-    override internal func prepareUI() {
-        super.prepareUI()
-        
     }
+    
 }

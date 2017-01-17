@@ -13,9 +13,8 @@ class BaseViewController: UIViewController {
     var tableView: UITableView?
     var refreshControl: UIRefreshControl?
     var isPullup = false // 标记上下拉  true上拉  false下拉
-    var isLogin = false // 是否已经登录 true已经登录 false未登录
-    /// 访客视图信息
-    var visitorInfo: [String: String]?
+    var isLogin = true   // 是否已经登录 true已经登录 false未登录
+    var visitorInfo: [String: String]? // 访客视图信息
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +26,16 @@ class BaseViewController: UIViewController {
     /// 加载数据 - 让子类去重写
     func loadData() {
         refreshControl?.endRefreshing()
+    }
+    
+    /// 注册
+    @objc fileprivate func register() {
+        print("注册")
+    }
+    
+    /// 登录
+    @objc fileprivate func login() {
+        print("登录")
     }
     
     /// 重写title属性，给自定义导航条设置标题
@@ -49,7 +58,7 @@ class BaseViewController: UIViewController {
 extension BaseViewController {
     
     /// 准备UI
-    func prepareUI() {
+    fileprivate func prepareUI() {
         view.backgroundColor = UIColor.white
         
         // 如果隐藏了导航栏，会缩进20。需要取消自动缩进
@@ -61,20 +70,23 @@ extension BaseViewController {
     }
     
     /// 设置导航条
-    private func  prepareNavigationBar() {
+    private func prepareNavigationBar() {
         // 添加导航条
         view.addSubview(navigationBar)
         // 设置条目
         navigationBar.items = [navItem]
-        // 渲染颜色
+        // 背景颜色
         navigationBar.barTintColor = UIColor.cz_color(withHex: 0xf6f6f6)
+        // 标题文字颜色
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.darkGray]
+        // 按钮文字颜色
+        navigationBar.tintColor = UIColor.orange
         // 是否有半透明效果
         navigationBar.isTranslucent = false
     }
     
-    /// 设置登录后的表格视图
-    private func prepareTableView() {
+    /// 设置登录后的表格视图 - 登录后的视图
+    func prepareTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         view.insertSubview(tableView!, belowSubview: navigationBar)
         tableView?.dataSource = self
@@ -95,11 +107,16 @@ extension BaseViewController {
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
     
-    /// 设置未登录的访客视图
+    /// 设置未登录的访客视图 - 登录前的视图
     private func prepareVisitorView() {
         let visitorView = VisitorView(frame: view.bounds.insetBy(dx: 0, dy: 49))
         visitorView.visitorInfo = visitorInfo
         view.insertSubview(visitorView, belowSubview: navigationBar)
+        
+        visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+        visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .done, target: self, action: #selector(register))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .done, target: self, action: #selector(login))
     }
     
 }

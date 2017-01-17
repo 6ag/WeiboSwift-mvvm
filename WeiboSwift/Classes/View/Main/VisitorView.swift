@@ -70,7 +70,7 @@ class VisitorView: UIView {
         color: UIColor.darkGray)
     
     /// 注册按钮
-    fileprivate lazy var registerButton: UIButton = UIButton.cz_textButton(
+    public lazy var registerButton: UIButton = UIButton.cz_textButton(
         "注册",
         fontSize: 16,
         normalColor: UIColor.orange,
@@ -78,7 +78,7 @@ class VisitorView: UIView {
         backgroundImageName: "common_button_white_disable")
     
     /// 登录按钮
-    fileprivate lazy var loginButton: UIButton = UIButton.cz_textButton(
+    public lazy var loginButton: UIButton = UIButton.cz_textButton(
         "登录",
         fontSize: 16,
         normalColor: UIColor.orange,

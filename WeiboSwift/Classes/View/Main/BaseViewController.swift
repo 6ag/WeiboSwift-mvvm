@@ -133,18 +133,13 @@ extension BaseViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let row = indexPath.row
-        let section = tableView.numberOfSections - 1
-        
-        if row < 0 || section < 0 {
-            return
-        }
         
         // 取出某组的行数
+        let section = tableView.numberOfSections - 1
         let count = tableView.numberOfRows(inSection: section) - 1
         
         // 是否是最后一个cell并且还没有上拉刷新
-        if row == count && !isPullup {
+        if indexPath.row == count && !isPullup {
             loadData()
         }
         

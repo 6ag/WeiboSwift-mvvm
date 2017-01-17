@@ -38,17 +38,15 @@ class StatusListViewModel {
             let tempFirstId = array.first?.id ?? 0
             print("firstId = \(firstId) lastId = \(lastId) tempFirstId = \(tempFirstId)")
             
+            // 拼接数据
             if pullup && lastId > tempFirstId {
                 self.statusList += array
             } else if firstId < tempFirstId {
                 self.statusList = array + self.statusList
             }
             
-            if array.count > 0 {
-                finished(true, true)
-            } else {
-                finished(true, false)
-            }
+            // 有新数据才刷新
+            array.count > 0 ? finished(true, true) : finished(true, false)
             
         }
         

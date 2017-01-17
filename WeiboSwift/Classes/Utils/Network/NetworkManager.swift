@@ -26,6 +26,8 @@ class NetworkManager: AFHTTPSessionManager {
     /// 访问令牌 - 除了微博授权接口，其他接口都需要用到
     var accessToken: String? = "2.00DR1EFEuawRuC4ab7d0b2920GBymt"
     
+    var uid: String? = ""
+    
     /// 公共请求方法
     ///
     /// - Parameters:

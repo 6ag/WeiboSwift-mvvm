@@ -31,4 +31,19 @@ extension NetworkManager {
         }
     }
     
+    func loadAccessToken(code: String) {
+        
+        let urlString = "https://api.weibo.com/oauth2/access_token"
+        let params = [
+            "client_id" : WB_APP_KEY,
+            "client_secret" : WB_APP_SECRET,
+            "grant_type" : "authorization_code",
+            "code" : code,
+            "redirect_uri" : WB_REDIRECT_URI
+        ]
+        
+        
+        
+    }
+    
 }

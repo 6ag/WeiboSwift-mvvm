@@ -21,14 +21,18 @@ enum HttpMethod {
 class NetworkManager: AFHTTPSessionManager {
     
     /// 请求对象单例
-    static let shared = NetworkManager()
+    static let shared: NetworkManager = {
+        let manager = NetworkManager()
+        manager.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        return manager
+    }()
     
-    /// 访问令牌 - 除了微博授权接口，其他接口都需要用到
-    var accessToken: String?
+    /// 微博账号对象
+    lazy var userAccount = UserAccount()
     
     /// 是否已经登录
     var isLogin: Bool {
-        return accessToken != nil
+        return userAccount.access_token != nil
     }
     
     /// 公共请求方法
@@ -77,7 +81,7 @@ class NetworkManager: AFHTTPSessionManager {
     ///   - finished: 完成回调
     func tokenRequest(method: HttpMethod = .get, urlString: String, parameters: [String : Any]?, finished: @escaping (_ json: AnyObject?, _ isSuccess: Bool) -> ()) {
         
-        guard let accessToken = accessToken else {
+        guard let accessToken = userAccount.access_token else {
             print("登录过期，需要重新登录")
             // 发出请求登录的通知
             NotificationCenter.default.post(name: NSNotification.Name(NEED_USER_LOGIN_NOTIFICATION), object: nil)

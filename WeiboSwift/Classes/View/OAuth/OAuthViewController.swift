@@ -102,6 +102,8 @@ extension OAuthViewController: UIWebViewDelegate {
         let code = request.url?.query?.substring(from: "code=".endIndex) ?? ""
         print("code = \(code)")
         
+        NetworkManager.shared.loadAccessToken(code: code)
+        
         return false
     }
 }

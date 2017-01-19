@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import YYModel
 
 // MARK: - 封装新浪微博的网络请求
 extension NetworkManager {
@@ -42,7 +43,15 @@ extension NetworkManager {
             "redirect_uri" : WB_REDIRECT_URI
         ]
         
-        
+        request(method: .post, urlString: urlString, parameters: params) { (json, isSuccess) in
+            
+            guard let json = json as? [String : AnyObject] else {
+                return
+            }
+            
+            self.userAccount.yy_modelSet(withJSON: json)
+            self.userAccount.saveAccount()
+        }
         
     }
     

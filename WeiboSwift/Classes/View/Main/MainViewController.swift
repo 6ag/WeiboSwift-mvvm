@@ -21,6 +21,10 @@ class MainViewController: UITabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(showUserLogin), name: NSNotification.Name(NEED_USER_LOGIN_NOTIFICATION), object: nil)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     /// 弹出用户登录界面
     @objc private func showUserLogin() {
         let nav = UINavigationController(rootViewController: OAuthViewController())

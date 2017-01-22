@@ -34,6 +34,15 @@
 		B21FB1E81E2C6FA100703024 /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */; };
 		B21FB1EA1E2CAC2500703024 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21FB1E91E2CAC2500703024 /* VisitorView.swift */; };
 		B23259511E30FCC500022736 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23259501E30FCC500022736 /* UserAccount.swift */; };
+		B24752521E330D5700287AFB /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24752511E330D5700287AFB /* StatusCell.swift */; };
+		B24752541E330D6600287AFB /* StatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24752531E330D6600287AFB /* StatusNormalCell.xib */; };
+		B24752561E33590E00287AFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24752551E33590E00287AFB /* User.swift */; };
+		B24752581E335F3100287AFB /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24752571E335F3100287AFB /* StatusViewModel.swift */; };
+		B247525A1E338D9000287AFB /* UIImageViewWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24752591E338D9000287AFB /* UIImageViewWebImage.swift */; };
+		B247525C1E33907600287AFB /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247525B1E33907600287AFB /* UIImageExtension.swift */; };
+		B247525E1E339AE300287AFB /* StatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247525D1E339AE300287AFB /* StatusToolBar.swift */; };
+		B24752601E33A4C600287AFB /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247525F1E33A4C600287AFB /* StatusPictureView.swift */; };
+		B24752621E33AE1A00287AFB /* StatusPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24752611E33AE1A00287AFB /* StatusPicture.swift */; };
 		B2F4AB101E2DBB8A00223D27 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4AB0F1E2DBB8A00223D27 /* NetworkManager.swift */; };
 		B2F4AB121E2DC77700223D27 /* NetworkManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4AB111E2DC77700223D27 /* NetworkManagerExtension.swift */; };
 		B2F4AB141E2DDE7F00223D27 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4AB131E2DDE7F00223D27 /* Status.swift */; };
@@ -88,6 +97,15 @@
 		B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
 		B21FB1E91E2CAC2500703024 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		B23259501E30FCC500022736 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		B24752511E330D5700287AFB /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
+		B24752531E330D6600287AFB /* StatusNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusNormalCell.xib; sourceTree = "<group>"; };
+		B24752551E33590E00287AFB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = WeiboSwift/Classes/View/Home/StatusCell/User.swift; sourceTree = SOURCE_ROOT; };
+		B24752571E335F3100287AFB /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusViewModel.swift; path = WeiboSwift/Classes/View/Home/StatusCell/StatusViewModel.swift; sourceTree = SOURCE_ROOT; };
+		B24752591E338D9000287AFB /* UIImageViewWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewWebImage.swift; sourceTree = "<group>"; };
+		B247525B1E33907600287AFB /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		B247525D1E339AE300287AFB /* StatusToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusToolBar.swift; sourceTree = "<group>"; };
+		B247525F1E33A4C600287AFB /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
+		B24752611E33AE1A00287AFB /* StatusPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusPicture.swift; path = WeiboSwift/Classes/View/Home/StatusCell/StatusPicture.swift; sourceTree = SOURCE_ROOT; };
 		B2F4AB0F1E2DBB8A00223D27 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B2F4AB111E2DC77700223D27 /* NetworkManagerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerExtension.swift; sourceTree = "<group>"; };
 		B2F4AB131E2DDE7F00223D27 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Status.swift; path = WeiboSwift/Classes/Utils/Network/Status.swift; sourceTree = SOURCE_ROOT; };
@@ -131,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				B2F4AB131E2DDE7F00223D27 /* Status.swift */,
+				B24752551E33590E00287AFB /* User.swift */,
+				B24752611E33AE1A00287AFB /* StatusPicture.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +189,7 @@
 		9A2D9B7D1E2BD54D0095C1C7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B24752501E330D2900287AFB /* StatusCell */,
 				9A2D9B881E2BDB4B0095C1C7 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -205,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				B2F4AB151E2DE00000223D27 /* StatusListViewModel.swift */,
+				B24752571E335F3100287AFB /* StatusViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -224,6 +246,8 @@
 			children = (
 				9A2D9B981E2BE0AD0095C1C7 /* BundleExtension.swift */,
 				B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */,
+				B24752591E338D9000287AFB /* UIImageViewWebImage.swift */,
+				B247525B1E33907600287AFB /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,6 +326,17 @@
 				B23259501E30FCC500022736 /* UserAccount.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B24752501E330D2900287AFB /* StatusCell */ = {
+			isa = PBXGroup;
+			children = (
+				B24752531E330D6600287AFB /* StatusNormalCell.xib */,
+				B24752511E330D5700287AFB /* StatusCell.swift */,
+				B247525F1E33A4C600287AFB /* StatusPictureView.swift */,
+				B247525D1E339AE300287AFB /* StatusToolBar.swift */,
+			);
+			path = StatusCell;
 			sourceTree = "<group>";
 		};
 		B2F4AB0E1E2DBB7000223D27 /* Network */ = {
@@ -385,6 +420,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B24752541E330D6600287AFB /* StatusNormalCell.xib in Resources */,
 				9A5503C31E2BB92D00D7DADB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,8 +484,10 @@
 				9A2D9BB91E2BE0BB0095C1C7 /* NSString+CZPath.m in Sources */,
 				9A2D9BB71E2BE0BB0095C1C7 /* NSString+CZBase64.m in Sources */,
 				9A2D9B8D1E2BDB5C0095C1C7 /* DiscoverViewController.swift in Sources */,
+				B24752561E33590E00287AFB /* User.swift in Sources */,
 				B21FB1EA1E2CAC2500703024 /* VisitorView.swift in Sources */,
 				9A2D9BBB1E2BE0BB0095C1C7 /* UIColor+CZAddition.m in Sources */,
+				B24752581E335F3100287AFB /* StatusViewModel.swift in Sources */,
 				9A2D9B991E2BE0AD0095C1C7 /* BundleExtension.swift in Sources */,
 				9A2D9B8F1E2BDB620095C1C7 /* ProfileViewController.swift in Sources */,
 				9A2D9B8B1E2BDB540095C1C7 /* MessageViewController.swift in Sources */,
@@ -457,17 +495,23 @@
 				9A2D9BB41E2BE0BB0095C1C7 /* NSArray+Log.m in Sources */,
 				9A2D9BBC1E2BE0BB0095C1C7 /* UILabel+CZAddition.m in Sources */,
 				9A2D9B851E2BD9FF0095C1C7 /* NavigationController.swift in Sources */,
+				B247525A1E338D9000287AFB /* UIImageViewWebImage.swift in Sources */,
 				B2F4AB101E2DBB8A00223D27 /* NetworkManager.swift in Sources */,
 				B23259511E30FCC500022736 /* UserAccount.swift in Sources */,
 				9A2D9BB51E2BE0BB0095C1C7 /* NSAttributedString+CZAdditon.m in Sources */,
+				B24752601E33A4C600287AFB /* StatusPictureView.swift in Sources */,
 				9A2D9B831E2BD9E00095C1C7 /* MainViewController.swift in Sources */,
 				9A2D9BB81E2BE0BB0095C1C7 /* NSString+CZHash.m in Sources */,
 				9A2D9B891E2BDB4B0095C1C7 /* HomeViewController.swift in Sources */,
 				B2F4AB121E2DC77700223D27 /* NetworkManagerExtension.swift in Sources */,
+				B24752621E33AE1A00287AFB /* StatusPicture.swift in Sources */,
+				B247525C1E33907600287AFB /* UIImageExtension.swift in Sources */,
 				9A2D9BBD1E2BE0BB0095C1C7 /* UIScreen+CZAddition.m in Sources */,
+				B24752521E330D5700287AFB /* StatusCell.swift in Sources */,
 				9A6787061E2E6962009C6D0F /* Common.swift in Sources */,
 				9A2D9B871E2BDB330095C1C7 /* BaseViewController.swift in Sources */,
 				9A2D9BBA1E2BE0BB0095C1C7 /* UIButton+CZAddition.m in Sources */,
+				B247525E1E339AE300287AFB /* StatusToolBar.swift in Sources */,
 				9A2D9BBF1E2BE0BB0095C1C7 /* UIViewController+CZAddition.m in Sources */,
 				9A6787091E2E6B22009C6D0F /* OAuthViewController.swift in Sources */,
 				B2F4AB161E2DE00000223D27 /* StatusListViewModel.swift in Sources */,

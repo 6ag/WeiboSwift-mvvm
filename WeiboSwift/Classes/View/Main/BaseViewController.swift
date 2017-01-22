@@ -20,6 +20,28 @@ class BaseViewController: UIViewController {
         
         prepareUI()
         loadData()
+        
+        // 监听登录成功的通知
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(loginSuccess(notification:)),
+            name: NSNotification.Name(USER_LOGIN_SUCCESS_NOTIFICATION),
+            object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    /// 登录成功
+    @objc fileprivate func loginSuccess(notification: Notification) {
+        // 清除所有顶部导航栏
+        navItem.leftBarButtonItem = nil
+        navItem.rightBarButtonItem = nil
+        // view == nil, 再次调用view的时候会去 loadView -> viewDidLoad
+        view = nil
+        // 避免重复注册通知
+        NotificationCenter.default.removeObserver(self)
     }
     
     /// 加载数据 - 让子类去重写
@@ -93,11 +115,14 @@ extension BaseViewController {
         tableView?.dataSource = self
         tableView?.delegate = self
         
-        // 向下移动一个导航条的高度
-        tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height,
-                                               left: 0,
-                                               bottom: tabBarController?.tabBar.bounds.height ?? 49,
-                                               right: 0)
+        let inset = UIEdgeInsets(top: navigationBar.bounds.height,
+                                 left: 0,
+                                 bottom: tabBarController?.tabBar.bounds.height ?? 49,
+                                 right: 0)
+        // 偏移内容区域
+        tableView?.contentInset = inset
+        // 偏移滚动条区域
+        tableView?.scrollIndicatorInsets = inset
         // 设置刷新控件
         refreshControl = UIRefreshControl()
         

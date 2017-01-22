@@ -32,7 +32,23 @@ extension NetworkManager {
         }
     }
     
-    func loadAccessToken(code: String) {
+    /// 加载用户信息
+    ///
+    /// - Parameter finished: 完成回调
+    func loadUserInfo(finished: @escaping (_ dict: [String : AnyObject]?) -> ()) {
+        let urlString = "https://api.weibo.com/2/users/show.json"
+        
+        tokenRequest(urlString: urlString, parameters: nil) { (json, isSuccess) in
+            finished(json as? [String : AnyObject])
+        }
+    }
+    
+    /// 加载账号信息
+    ///
+    /// - Parameters:
+    ///   - code: 授权码
+    ///   - finished: 完成回调
+    func loadAccessToken(code: String, finished: @escaping (_ isSuccess: Bool) -> ()) {
         
         let urlString = "https://api.weibo.com/oauth2/access_token"
         let params = [
@@ -46,11 +62,19 @@ extension NetworkManager {
         request(method: .post, urlString: urlString, parameters: params) { (json, isSuccess) in
             
             guard let json = json as? [String : AnyObject] else {
+                finished(isSuccess)
                 return
             }
             
-            self.userAccount.yy_modelSet(withJSON: json)
-            self.userAccount.saveAccount()
+            self.userAccount.yy_modelSet(with: json)
+            
+            // 加载用户信息
+            self.loadUserInfo(finished: { (dict) in
+                self.userAccount.yy_modelSet(with: dict ?? [:])
+                self.userAccount.saveAccount()
+                finished(isSuccess)
+            })
+            
         }
         
     }

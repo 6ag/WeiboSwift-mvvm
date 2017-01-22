@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SVProgressHUD
 
 class OAuthViewController: UIViewController {
     
@@ -102,7 +103,17 @@ extension OAuthViewController: UIWebViewDelegate {
         let code = request.url?.query?.substring(from: "code=".endIndex) ?? ""
         print("code = \(code)")
         
-        NetworkManager.shared.loadAccessToken(code: code)
+        NetworkManager.shared.loadAccessToken(code: code) { (isSuccess) in
+            if isSuccess {
+                SVProgressHUD.showInfo(withStatus: "登录成功")
+                // 发出登录成功通知
+                NotificationCenter.default.post(name: NSNotification.Name(USER_LOGIN_SUCCESS_NOTIFICATION), object: nil)
+                // 关闭页面
+                self.back()
+            } else {
+                SVProgressHUD.showInfo(withStatus: "网络请求失败")
+            }
+        }
         
         return false
     }

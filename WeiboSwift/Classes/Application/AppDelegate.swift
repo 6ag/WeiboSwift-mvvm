@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SVProgressHUD
+import AFNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        setupAdditions()       // 配置额外信息
         setupViewController()  // 配置控制器
         
         return true
@@ -29,5 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
     }
     
+}
+
+extension AppDelegate {
+    
+    /// 配置额外信息
+    fileprivate func setupAdditions() {
+        // HUD消失时间间隔
+        SVProgressHUD.setMinimumDismissTimeInterval(1)
+        // 请求网络的时候钻菊花
+        AFNetworkActivityIndicatorManager.shared().isEnabled = true
+    }
 }
 

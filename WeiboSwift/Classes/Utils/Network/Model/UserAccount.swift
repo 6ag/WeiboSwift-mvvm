@@ -14,15 +14,21 @@ class UserAccount: NSObject {
     /// token
     var access_token: String?
     
+    /// 用户id
+    var uid: String?
+    
+    /// 昵称
+    var name: String?
+    
+    /// 头像 180x180
+    var avatar_large: String?
+    
     /// token有效期 秒数
     var expires_in: TimeInterval = 0 {
         didSet {
             expiresDate = Date(timeIntervalSinceNow: expires_in)
         }
     }
-    
-    /// 用户id
-    var uid: String?
     
     /// 过期日期
     var expiresDate: Date?
@@ -44,6 +50,17 @@ class UserAccount: NSObject {
         // 字典转模型
         yy_modelSet(with: dict ?? [:])
         
+        // 比现在的日期小 - 清空缓存的账号信息
+        if expiresDate?.compare(Date()) != .orderedDescending {
+            print("账户过期")
+            access_token = nil
+            uid = nil
+            expiresDate = nil
+            try? FileManager.default.removeItem(atPath: filePath)
+            
+        }
+        
+        print("创建成功，filePath = " + filePath)
     }
     
     override var description: String {

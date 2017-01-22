@@ -48,6 +48,10 @@ extension HomeViewController {
     override func prepareTableView() {
         super.prepareTableView()
         
+        tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil), forCellReuseIdentifier: CELL_IDENTIFIER)
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        tableView?.estimatedRowHeight = 300
+        tableView?.separatorStyle = .none
     }
 }
 
@@ -59,8 +63,8 @@ extension HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text ?? ""
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_IDENTIFIER, for: indexPath) as! StatusCell
+        cell.viewModel = listViewModel.statusList[indexPath.row]
         return cell
     }
     

@@ -28,9 +28,15 @@ class StatusPictureView: UIView {
                 return
             }
             
+            // 默认隐藏全部
+            for subview in subviews {
+                subview.isHidden = true
+            }
+            
             var index = 0
             for url in urls {
                 let imageView = subviews[index] as? UIImageView
+                imageView?.isHidden = false
                 imageView?.setImage(urlString: url.thumbnail_pic, placeholderImage: nil)
                 
                 // 4张图的时候需要2行2列显示
@@ -39,7 +45,7 @@ class StatusPictureView: UIView {
                 } else {
                     index += 1
                 }
-                imageView?.isHidden = false
+                
             }
         }
     }
@@ -85,6 +91,7 @@ extension StatusPictureView {
         // 背景颜色
         backgroundColor = superview?.backgroundColor
         
+        // 每行3列
         let count = 3
         
         let rect = CGRect(x: 0,
@@ -106,9 +113,6 @@ extension StatusPictureView {
             
             imageView.frame = rect.offsetBy(dx: xOffset, dy: yOffset)
             addSubview(imageView)
-            
-            // 默认隐藏
-            imageView.isHidden = true
         }
         
     }

@@ -53,9 +53,9 @@ extension HomeViewController {
                             forCellReuseIdentifier: ORIGINAL_CELL_IDENTIFIER)
         tableView?.register(UINib(nibName: "StatusRetweetedCell", bundle: nil),
                             forCellReuseIdentifier: RETWEETED_CELL_IDENTIFIER)
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        tableView?.estimatedRowHeight = 300
         tableView?.separatorStyle = .none
+        // 预估行高
+        tableView?.estimatedRowHeight = 300
     }
 }
 
@@ -66,11 +66,16 @@ extension HomeViewController {
         return listViewModel.statusList.count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let viewModel = listViewModel.statusList[indexPath.row]
+        return viewModel.rowHeight
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let viewModel = listViewModel.statusList[indexPath.row]
         let cellId = viewModel.status.retweeted_status == nil ? ORIGINAL_CELL_IDENTIFIER : RETWEETED_CELL_IDENTIFIER
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! StatusCell
-        cell.viewModel = listViewModel.statusList[indexPath.row]
+        cell.viewModel = viewModel
         return cell
     }
     

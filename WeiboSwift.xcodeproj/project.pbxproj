@@ -43,6 +43,7 @@
 		B247525E1E339AE300287AFB /* StatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247525D1E339AE300287AFB /* StatusToolBar.swift */; };
 		B24752601E33A4C600287AFB /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247525F1E33A4C600287AFB /* StatusPictureView.swift */; };
 		B24752621E33AE1A00287AFB /* StatusPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24752611E33AE1A00287AFB /* StatusPicture.swift */; };
+		B2E854BF1E34735D00F230AA /* StatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E854BE1E34735D00F230AA /* StatusRetweetedCell.xib */; };
 		B2F4AB101E2DBB8A00223D27 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4AB0F1E2DBB8A00223D27 /* NetworkManager.swift */; };
 		B2F4AB121E2DC77700223D27 /* NetworkManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4AB111E2DC77700223D27 /* NetworkManagerExtension.swift */; };
 		B2F4AB141E2DDE7F00223D27 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4AB131E2DDE7F00223D27 /* Status.swift */; };
@@ -106,6 +107,7 @@
 		B247525D1E339AE300287AFB /* StatusToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusToolBar.swift; sourceTree = "<group>"; };
 		B247525F1E33A4C600287AFB /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		B24752611E33AE1A00287AFB /* StatusPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusPicture.swift; path = WeiboSwift/Classes/View/Home/StatusCell/StatusPicture.swift; sourceTree = SOURCE_ROOT; };
+		B2E854BE1E34735D00F230AA /* StatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusRetweetedCell.xib; sourceTree = "<group>"; };
 		B2F4AB0F1E2DBB8A00223D27 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B2F4AB111E2DC77700223D27 /* NetworkManagerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerExtension.swift; sourceTree = "<group>"; };
 		B2F4AB131E2DDE7F00223D27 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Status.swift; path = WeiboSwift/Classes/Utils/Network/Status.swift; sourceTree = SOURCE_ROOT; };
@@ -332,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				B24752531E330D6600287AFB /* StatusNormalCell.xib */,
+				B2E854BE1E34735D00F230AA /* StatusRetweetedCell.xib */,
 				B24752511E330D5700287AFB /* StatusCell.swift */,
 				B247525F1E33A4C600287AFB /* StatusPictureView.swift */,
 				B247525D1E339AE300287AFB /* StatusToolBar.swift */,
@@ -421,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B24752541E330D6600287AFB /* StatusNormalCell.xib in Resources */,
+				B2E854BF1E34735D00F230AA /* StatusRetweetedCell.xib in Resources */,
 				9A5503C31E2BB92D00D7DADB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

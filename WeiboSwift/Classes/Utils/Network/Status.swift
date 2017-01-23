@@ -28,6 +28,9 @@ class Status: NSObject {
     /// 表态数
     var attitudes_count: Int = 0
     
+    /// 被转发的原创微博
+    var retweeted_status: Status?
+    
     /// 配图模型数组
     var pic_urls: [StatusPicture]?
     

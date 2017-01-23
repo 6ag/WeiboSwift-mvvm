@@ -8,7 +8,8 @@
 
 import UIKit
 
-fileprivate let CELL_IDENTIFIER = "status_list_cell"
+fileprivate let ORIGINAL_CELL_IDENTIFIER = "ORIGINAL_CELL_IDENTIFIER"
+fileprivate let RETWEETED_CELL_IDENTIFIER = "RETWEETED_CELL_IDENTIFIER"
 
 class HomeViewController: BaseViewController {
 
@@ -48,7 +49,10 @@ extension HomeViewController {
     override func prepareTableView() {
         super.prepareTableView()
         
-        tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil), forCellReuseIdentifier: CELL_IDENTIFIER)
+        tableView?.register(UINib(nibName: "StatusNormalCell", bundle: nil),
+                            forCellReuseIdentifier: ORIGINAL_CELL_IDENTIFIER)
+        tableView?.register(UINib(nibName: "StatusRetweetedCell", bundle: nil),
+                            forCellReuseIdentifier: RETWEETED_CELL_IDENTIFIER)
         tableView?.rowHeight = UITableViewAutomaticDimension
         tableView?.estimatedRowHeight = 300
         tableView?.separatorStyle = .none
@@ -63,7 +67,9 @@ extension HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_IDENTIFIER, for: indexPath) as! StatusCell
+        let viewModel = listViewModel.statusList[indexPath.row]
+        let cellId = viewModel.status.retweeted_status == nil ? ORIGINAL_CELL_IDENTIFIER : RETWEETED_CELL_IDENTIFIER
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! StatusCell
         cell.viewModel = listViewModel.statusList[indexPath.row]
         return cell
     }

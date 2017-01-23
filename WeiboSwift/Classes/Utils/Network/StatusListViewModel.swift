@@ -8,6 +8,7 @@
 
 import UIKit
 import YYModel
+import SDWebImage
 
 class StatusListViewModel {
     
@@ -39,27 +40,72 @@ class StatusListViewModel {
             }
             
             // 微博视图模型
-            var statusList = [StatusViewModel]()
+            var tempStatusList = [StatusViewModel]()
             for dict in list ?? [] {
                 guard let model = Status.yy_model(with: dict) else {
                     continue
                 }
-                statusList.append(StatusViewModel(model: model))
+                tempStatusList.append(StatusViewModel(model: model))
             }
             
             // 取出返回数据里最大id 去进行数据拼接
-            let tempFirstId = statusList.first?.status.id ?? 0
+            let tempFirstId = tempStatusList.first?.status.id ?? 0
             
             // 拼接数据
             if pullup && lastId > tempFirstId {
-                self.statusList += statusList
+                self.statusList += tempStatusList
             } else if !pullup && firstId < tempFirstId {
-                self.statusList = statusList + self.statusList
+                self.statusList = tempStatusList + self.statusList
             }
             
             // 有新数据才刷新
-            statusList.count > 0 ? finished(true, true) : finished(true, false)
+            if tempStatusList.count > 0 {
+                self.cacheSingleImage(list: tempStatusList, finished: finished)
+            } else {
+                finished(true, false)
+            }
+        }
+        
+    }
+    
+    /// 缓存单张图片
+    ///
+    /// - Parameter list: 本次下载的视图模型数组
+    private func cacheSingleImage(list: [StatusViewModel], finished: @escaping (_ isSuccess: Bool, _ isShouldRefresh: Bool) -> ()) {
+        
+        // 创建一个调度组
+        let group = DispatchGroup()
+        
+        // 记录数据长度
+        var length = 0
+        
+        for viewModel in list {
+            if viewModel.picUrls?.count != 1 {
+                continue
+            }
             
+            guard let pic = viewModel.picUrls?.first?.thumbnail_pic,
+                let url = URL(string: pic) else {
+                    return
+            }
+            
+            // 进入组
+            group.enter()
+            SDWebImageManager.shared().downloadImage(with: url, options: [], progress: nil, completed: { (image, _, _, _, _) in
+                if let image = image,
+                    let data = UIImagePNGRepresentation(image) {
+                    length += data.count
+                }
+                // 离开组
+                group.leave()
+            })
+            
+        }
+        
+        // 所有进入的组都已经离开，就会执行这个闭包，回调结果
+        group.notify(queue: DispatchQueue.main) {
+            print("这次刷新加载了 \(length / 1024)kb图片数据")
+            finished(true, true)
         }
         
     }

@@ -31,6 +31,14 @@ class StatusViewModel: CustomStringConvertible {
     /// 配图区域尺寸
     var pictureViewSize = CGSize()
     
+    /// 微博配图，如果被转发的微博没图，就返回原创的，原创没有就返回nil。因为被转发微博如果有图，那原创微博一定没图
+    var picUrls: [StatusPicture]? {
+        return status.retweeted_status?.pic_urls ?? status.pic_urls
+    }
+    
+    /// 被转发微博文字
+    var retweetedText: String?
+    
     init(model: Status) {
         self.status = model
         
@@ -65,7 +73,13 @@ class StatusViewModel: CustomStringConvertible {
         likeString = countToString(count: model.attitudes_count, defaultString: "赞")
         
         // 计算配图区域尺寸
-        pictureViewSize = calcPictureViewSize(count: model.pic_urls?.count ?? 0)
+        pictureViewSize = calcPictureViewSize(count: picUrls?.count ?? 0)
+        
+        // 被转发微博文字
+        if let retweeted_status = status.retweeted_status,
+            let user = status.retweeted_status?.user {
+            retweetedText = "@" + (user.screen_name ?? "") + ":" + (retweeted_status.text ?? "")
+        }
         
     }
     
@@ -75,6 +89,23 @@ class StatusViewModel: CustomStringConvertible {
     /// - Returns: 尺寸
     private func calcPictureViewSize(count: Int) -> CGSize {
         
+        // 没有配图
+        if count == 0 {
+            return CGSize()
+        }
+        
+        /**
+         行数
+         1 2 3 = 0 1 2 / 3 = 0 + 1 = 1
+         4 5 6 = 3 4 5 / 3 = 1 + 1 = 2
+         7 8 9 = 6 7 8 / 3 = 2 + 1 = 3
+        */
+        let row = (count - 1) / 3 + 1
+        
+        /// 配图区域高度
+        let height: CGFloat = STATUS_PICTURE_VIEW_OUTER_MARGIN + CGFloat(row) * STATUS_PICTURE_ITEM_WIDTH + STATUS_PICTURE_VIEW_INNER_MARGIN * CGFloat(row - 1)
+        
+        return CGSize(width: STATUS_PICTURE_VIEW_WIDHT, height: height)
     }
     
     /// 数量转字符串 0显示默认字符串 小于10000显示具体数字 大于10000显示x.xx万

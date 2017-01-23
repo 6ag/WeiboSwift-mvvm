@@ -31,11 +31,14 @@ class StatusCell: UITableViewCell {
     /// 微博正文
     @IBOutlet weak var statusLabel: UILabel!
     
-    /// 图片区域
+    /// 配图区域
     @IBOutlet weak var pictureView: StatusPictureView!
     
     /// 底部工具条
     @IBOutlet weak var toolBar: StatusToolBar!
+    
+    /// 被转发微博正文
+    @IBOutlet weak var retweetedStatusLabel: UILabel!
     
     var viewModel: StatusViewModel? {
         didSet {
@@ -45,8 +48,12 @@ class StatusCell: UITableViewCell {
             memberIconView.image = viewModel?.memberIcon
             statusLabel.text = viewModel?.status.text
             
+            // 被转发微博文字
+            retweetedStatusLabel?.text = viewModel?.retweetedText
+            
             // 配图尺寸
             pictureView.heightConstrait.constant = viewModel?.pictureViewSize.height ?? 0
+            pictureView.urls = viewModel?.picUrls
             
             // 底部工具条
             toolBar.viewModel = viewModel

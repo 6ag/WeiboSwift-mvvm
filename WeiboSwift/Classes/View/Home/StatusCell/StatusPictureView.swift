@@ -31,7 +31,6 @@ class StatusPictureView: UIView {
             var index = 0
             for url in urls {
                 let imageView = subviews[index] as? UIImageView
-                imageView?.isHidden = false
                 imageView?.setImage(urlString: url.thumbnail_pic, placeholderImage: nil)
                 
                 // 4张图的时候需要2行2列显示
@@ -40,7 +39,7 @@ class StatusPictureView: UIView {
                 } else {
                     index += 1
                 }
-                
+                imageView?.isHidden = false
             }
         }
     }

@@ -22,7 +22,7 @@ extension UIImage {
         let rect = CGRect(origin: CGPoint(), size: size ?? CGSize.zero)
         
         // 开启图形上下文 size:绘图的尺寸 opaque:不透明 scale:屏幕分辨率系数,0会选择当前设备的屏幕分辨率系数
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
+        UIGraphicsBeginImageContextWithOptions(rect.size, true, 0)
         
         // 绘制 在指定区域拉伸并绘制
         draw(in: rect)

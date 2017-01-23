@@ -95,6 +95,8 @@ class StatusListViewModel {
                 if let image = image,
                     let data = UIImagePNGRepresentation(image) {
                     length += data.count
+                    // 更新单图尺寸
+                    viewModel.updateSingleImageSize(image: image)
                 }
                 // 离开组
                 group.leave()

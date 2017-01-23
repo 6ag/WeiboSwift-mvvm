@@ -50,10 +50,9 @@ class StatusCell: UITableViewCell {
             
             // 被转发微博文字
             retweetedStatusLabel?.text = viewModel?.retweetedText
-            
-            // 配图尺寸
-            pictureView.heightConstrait.constant = viewModel?.pictureViewSize.height ?? 0
-            pictureView.urls = viewModel?.picUrls
+        
+            // 微博配图
+            pictureView.viewModel = viewModel
             
             // 底部工具条
             toolBar.viewModel = viewModel

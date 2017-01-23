@@ -9,11 +9,20 @@
 import UIKit
 
 class StatusPictureView: UIView {
-
+    
     /// 配图视图高度约束
     @IBOutlet weak var heightConstrait: NSLayoutConstraint!
     
-    var urls: [StatusPicture]? {
+    /// 微博视图模型
+    var viewModel: StatusViewModel? {
+        didSet {
+            calcViewSize()
+            urls = viewModel?.picUrls
+        }
+    }
+    
+    /// 微博配图模型数组
+    private var urls: [StatusPicture]? {
         didSet {
             guard let urls = urls else {
                 return
@@ -34,6 +43,28 @@ class StatusPictureView: UIView {
                 
             }
         }
+    }
+    
+    /// 根据视图模型的配图视图尺寸，调整内容显示
+    private func calcViewSize() {
+        
+        // 单图和多图第一张图片尺寸需要更新
+        if viewModel?.picUrls?.count == 1 {
+            var fistSize = viewModel?.pictureViewSize ?? CGSize()
+            fistSize.height -= STATUS_PICTURE_VIEW_OUTER_MARGIN
+            subviews.first?.frame = CGRect(x: 0,
+                                           y: STATUS_PICTURE_VIEW_OUTER_MARGIN,
+                                           width: fistSize.width,
+                                           height: fistSize.height)
+        } else {
+            subviews.first?.frame = CGRect(x: 0,
+                                           y: STATUS_PICTURE_VIEW_OUTER_MARGIN,
+                                           width: STATUS_PICTURE_ITEM_WIDTH,
+                                           height: STATUS_PICTURE_ITEM_WIDTH)
+        }
+        
+        // 修改高度约束
+        heightConstrait.constant = viewModel?.pictureViewSize.height ?? 0
     }
     
     override func awakeFromNib() {

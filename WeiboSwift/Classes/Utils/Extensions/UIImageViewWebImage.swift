@@ -22,7 +22,11 @@ extension UIImageView {
                 image = placeholderImage
                 return
         }
-        sd_setImage(with: url, placeholderImage: placeholderImage)
+        
+        sd_setImage(with: url, placeholderImage: placeholderImage, options: []) { [weak self] (image, _, _, _) in
+            // 重绘图片 - 解决图片拉伸引起的性能问题
+            self?.image = image?.redrawImage(size: self?.bounds.size)
+        }
         
     }
     

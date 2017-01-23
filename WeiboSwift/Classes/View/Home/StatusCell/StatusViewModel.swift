@@ -99,13 +99,22 @@ class StatusViewModel: CustomStringConvertible {
          1 2 3 = 0 1 2 / 3 = 0 + 1 = 1
          4 5 6 = 3 4 5 / 3 = 1 + 1 = 2
          7 8 9 = 6 7 8 / 3 = 2 + 1 = 3
-        */
+         */
         let row = (count - 1) / 3 + 1
         
         /// 配图区域高度
         let height: CGFloat = STATUS_PICTURE_VIEW_OUTER_MARGIN + CGFloat(row) * STATUS_PICTURE_ITEM_WIDTH + STATUS_PICTURE_VIEW_INNER_MARGIN * CGFloat(row - 1)
         
         return CGSize(width: STATUS_PICTURE_VIEW_WIDHT, height: height)
+    }
+    
+    /// 微博只有一张配图时更新图片区域尺寸
+    ///
+    /// - Parameter image: 图片
+    func updateSingleImageSize(image: UIImage) {
+        var size = image.size
+        size.height += STATUS_PICTURE_VIEW_OUTER_MARGIN
+        pictureViewSize = size
     }
     
     /// 数量转字符串 0显示默认字符串 小于10000显示具体数字 大于10000显示x.xx万

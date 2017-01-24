@@ -34,6 +34,8 @@
 		B21FB1E81E2C6FA100703024 /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */; };
 		B21FB1EA1E2CAC2500703024 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21FB1E91E2CAC2500703024 /* VisitorView.swift */; };
 		B23259511E30FCC500022736 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23259501E30FCC500022736 /* UserAccount.swift */; };
+		B234A4FF1E371E5800D4B6A9 /* JFRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B234A4FD1E371E5800D4B6A9 /* JFRefreshView.swift */; };
+		B234A5001E371E5800D4B6A9 /* JFRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B234A4FE1E371E5800D4B6A9 /* JFRefreshView.xib */; };
 		B24752521E330D5700287AFB /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24752511E330D5700287AFB /* StatusCell.swift */; };
 		B24752541E330D6600287AFB /* StatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24752531E330D6600287AFB /* StatusNormalCell.xib */; };
 		B24752561E33590E00287AFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24752551E33590E00287AFB /* User.swift */; };
@@ -43,6 +45,7 @@
 		B247525E1E339AE300287AFB /* StatusToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247525D1E339AE300287AFB /* StatusToolBar.swift */; };
 		B24752601E33A4C600287AFB /* StatusPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B247525F1E33A4C600287AFB /* StatusPictureView.swift */; };
 		B24752621E33AE1A00287AFB /* StatusPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24752611E33AE1A00287AFB /* StatusPicture.swift */; };
+		B2818FF91E3607AD00D3DE4C /* JFRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2818FF81E3607AD00D3DE4C /* JFRefreshControl.swift */; };
 		B2E854BF1E34735D00F230AA /* StatusRetweetedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E854BE1E34735D00F230AA /* StatusRetweetedCell.xib */; };
 		B2F4AB101E2DBB8A00223D27 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4AB0F1E2DBB8A00223D27 /* NetworkManager.swift */; };
 		B2F4AB121E2DC77700223D27 /* NetworkManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F4AB111E2DC77700223D27 /* NetworkManagerExtension.swift */; };
@@ -98,6 +101,8 @@
 		B21FB1E71E2C6FA100703024 /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
 		B21FB1E91E2CAC2500703024 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		B23259501E30FCC500022736 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		B234A4FD1E371E5800D4B6A9 /* JFRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFRefreshView.swift; sourceTree = "<group>"; };
+		B234A4FE1E371E5800D4B6A9 /* JFRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFRefreshView.xib; sourceTree = "<group>"; };
 		B24752511E330D5700287AFB /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		B24752531E330D6600287AFB /* StatusNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusNormalCell.xib; sourceTree = "<group>"; };
 		B24752551E33590E00287AFB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = WeiboSwift/Classes/View/Home/StatusCell/User.swift; sourceTree = SOURCE_ROOT; };
@@ -107,6 +112,7 @@
 		B247525D1E339AE300287AFB /* StatusToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusToolBar.swift; sourceTree = "<group>"; };
 		B247525F1E33A4C600287AFB /* StatusPictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPictureView.swift; sourceTree = "<group>"; };
 		B24752611E33AE1A00287AFB /* StatusPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusPicture.swift; path = WeiboSwift/Classes/View/Home/StatusCell/StatusPicture.swift; sourceTree = SOURCE_ROOT; };
+		B2818FF81E3607AD00D3DE4C /* JFRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFRefreshControl.swift; sourceTree = "<group>"; };
 		B2E854BE1E34735D00F230AA /* StatusRetweetedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusRetweetedCell.xib; sourceTree = "<group>"; };
 		B2F4AB0F1E2DBB8A00223D27 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B2F4AB111E2DC77700223D27 /* NetworkManagerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerExtension.swift; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 		9A2D9B7A1E2BD54D0095C1C7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B2818FF71E36077D00D3DE4C /* RefreshControl */,
 				B2F4AB0E1E2DBB7000223D27 /* Network */,
 				9A2D9B9A1E2BE0BB0095C1C7 /* Additions */,
 				9A2D9B971E2BE0AD0095C1C7 /* Extensions */,
@@ -342,6 +349,16 @@
 			path = StatusCell;
 			sourceTree = "<group>";
 		};
+		B2818FF71E36077D00D3DE4C /* RefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				B2818FF81E3607AD00D3DE4C /* JFRefreshControl.swift */,
+				B234A4FD1E371E5800D4B6A9 /* JFRefreshView.swift */,
+				B234A4FE1E371E5800D4B6A9 /* JFRefreshView.xib */,
+			);
+			path = RefreshControl;
+			sourceTree = "<group>";
+		};
 		B2F4AB0E1E2DBB7000223D27 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B234A5001E371E5800D4B6A9 /* JFRefreshView.xib in Resources */,
 				B24752541E330D6600287AFB /* StatusNormalCell.xib in Resources */,
 				B2E854BF1E34735D00F230AA /* StatusRetweetedCell.xib in Resources */,
 				9A5503C31E2BB92D00D7DADB /* Assets.xcassets in Resources */,
@@ -516,10 +534,12 @@
 				9A2D9B871E2BDB330095C1C7 /* BaseViewController.swift in Sources */,
 				9A2D9BBA1E2BE0BB0095C1C7 /* UIButton+CZAddition.m in Sources */,
 				B247525E1E339AE300287AFB /* StatusToolBar.swift in Sources */,
+				B234A4FF1E371E5800D4B6A9 /* JFRefreshView.swift in Sources */,
 				9A2D9BBF1E2BE0BB0095C1C7 /* UIViewController+CZAddition.m in Sources */,
 				9A6787091E2E6B22009C6D0F /* OAuthViewController.swift in Sources */,
 				B2F4AB161E2DE00000223D27 /* StatusListViewModel.swift in Sources */,
 				9A2D9BB61E2BE0BB0095C1C7 /* NSObject+CZRuntime.m in Sources */,
+				B2818FF91E3607AD00D3DE4C /* JFRefreshControl.swift in Sources */,
 				B21FB1E81E2C6FA100703024 /* UIBarButtonItemExtension.swift in Sources */,
 				9A2D9BBE1E2BE0BB0095C1C7 /* UIView+CZAddition.m in Sources */,
 			);

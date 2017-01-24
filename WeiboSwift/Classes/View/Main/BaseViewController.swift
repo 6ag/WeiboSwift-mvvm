@@ -11,7 +11,7 @@ import UIKit
 class BaseViewController: UIViewController {
     
     var tableView: UITableView?
-    var refreshControl: UIRefreshControl?
+    var refreshControl: JFRefreshControl?
     var isPullup = false // 标记上下拉  true上拉  false下拉
     var visitorInfo: [String: String]? // 访客视图信息
     
@@ -19,7 +19,10 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         prepareUI()
-        loadData()
+//        loadData()
+        
+        // 开始刷新
+        refreshControl?.beginRefreshing()
         
         // 监听登录成功的通知
         NotificationCenter.default.addObserver(
@@ -124,11 +127,9 @@ extension BaseViewController {
         // 偏移滚动条区域
         tableView?.scrollIndicatorInsets = inset
         // 设置刷新控件
-        refreshControl = UIRefreshControl()
-        
+        refreshControl = JFRefreshControl()
         // 添加刷新控件到表格视图
         tableView?.addSubview(refreshControl!)
-        
         // 添加监听方法
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }

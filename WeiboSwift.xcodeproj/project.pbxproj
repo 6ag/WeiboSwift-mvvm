@@ -36,6 +36,7 @@
 		B23259511E30FCC500022736 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23259501E30FCC500022736 /* UserAccount.swift */; };
 		B234A4FF1E371E5800D4B6A9 /* JFRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B234A4FD1E371E5800D4B6A9 /* JFRefreshView.swift */; };
 		B234A5001E371E5800D4B6A9 /* JFRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B234A4FE1E371E5800D4B6A9 /* JFRefreshView.xib */; };
+		B234A5041E372ABF00D4B6A9 /* ComposeTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B234A5031E372ABF00D4B6A9 /* ComposeTypeView.swift */; };
 		B24752521E330D5700287AFB /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24752511E330D5700287AFB /* StatusCell.swift */; };
 		B24752541E330D6600287AFB /* StatusNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24752531E330D6600287AFB /* StatusNormalCell.xib */; };
 		B24752561E33590E00287AFB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24752551E33590E00287AFB /* User.swift */; };
@@ -103,6 +104,7 @@
 		B23259501E30FCC500022736 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		B234A4FD1E371E5800D4B6A9 /* JFRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JFRefreshView.swift; sourceTree = "<group>"; };
 		B234A4FE1E371E5800D4B6A9 /* JFRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFRefreshView.xib; sourceTree = "<group>"; };
+		B234A5031E372ABF00D4B6A9 /* ComposeTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTypeView.swift; sourceTree = "<group>"; };
 		B24752511E330D5700287AFB /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		B24752531E330D6600287AFB /* StatusNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusNormalCell.xib; sourceTree = "<group>"; };
 		B24752551E33590E00287AFB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = WeiboSwift/Classes/View/Home/StatusCell/User.swift; sourceTree = SOURCE_ROOT; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				9A2D9B7E1E2BD54D0095C1C7 /* Main */,
+				B234A5011E372A9900D4B6A9 /* Compose */,
 				9A6787071E2E6AFE009C6D0F /* OAuth */,
 				9A2D9B7D1E2BD54D0095C1C7 /* Home */,
 				9A2D9B7F1E2BD54D0095C1C7 /* Message */,
@@ -335,6 +338,22 @@
 				B23259501E30FCC500022736 /* UserAccount.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B234A5011E372A9900D4B6A9 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				B234A5021E372A9900D4B6A9 /* ComposeType */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		B234A5021E372A9900D4B6A9 /* ComposeType */ = {
+			isa = PBXGroup;
+			children = (
+				B234A5031E372ABF00D4B6A9 /* ComposeTypeView.swift */,
+			);
+			path = ComposeType;
 			sourceTree = "<group>";
 		};
 		B24752501E330D2900287AFB /* StatusCell */ = {
@@ -532,6 +551,7 @@
 				B24752521E330D5700287AFB /* StatusCell.swift in Sources */,
 				9A6787061E2E6962009C6D0F /* Common.swift in Sources */,
 				9A2D9B871E2BDB330095C1C7 /* BaseViewController.swift in Sources */,
+				B234A5041E372ABF00D4B6A9 /* ComposeTypeView.swift in Sources */,
 				9A2D9BBA1E2BE0BB0095C1C7 /* UIButton+CZAddition.m in Sources */,
 				B247525E1E339AE300287AFB /* StatusToolBar.swift in Sources */,
 				B234A4FF1E371E5800D4B6A9 /* JFRefreshView.swift in Sources */,

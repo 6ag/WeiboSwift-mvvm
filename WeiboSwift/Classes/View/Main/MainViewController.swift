@@ -38,7 +38,13 @@ class MainViewController: UITabBarController {
     
     /// 发布微博按钮点击
     @objc fileprivate func composeStatus() {
-        print("发布微博")
+        if NetworkManager.shared.isLogin {
+            let composeTypeView = ComposeTypeView()
+            composeTypeView.show()
+        } else {
+            // 发出请求登录的通知
+            NotificationCenter.default.post(name: NSNotification.Name(NEED_USER_LOGIN_NOTIFICATION), object: nil)
+        }
     }
     
     /// 发布按钮
@@ -55,7 +61,6 @@ extension MainViewController {
         let width = tabBar.bounds.width / CGFloat(childViewControllers.count)
         composeButton.frame = tabBar.bounds.insetBy(dx: width * 2, dy: 0)
         composeButton.addTarget(self, action: #selector(composeStatus), for: .touchUpInside)
-        
     }
     
     /// 设置所有子控制器
@@ -151,7 +156,7 @@ extension MainViewController: UITabBarControllerDelegate {
             
             // 延迟刷新数据，让列表先滚动等顶部
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25, execute: { 
-                homeVc.loadData()
+                homeVc.refreshControl?.beginRefreshing()
             })
             
         }
